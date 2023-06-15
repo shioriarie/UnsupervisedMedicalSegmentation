@@ -8,9 +8,9 @@ sys.path.insert(0, import_dir + '/datasets/')
 
 from berkeley_natural_images import BerkeleyNaturalImages
 from brain_ventricles import BrainVentricles
-from glas_histology import GlasHistology
 from retina import Retina
 from brain_tumor import BrainTumor
+from esophagus_cancer import EsophagusCancer
 from example_dataset_without_label import ExampleDatasetWithoutLabel
 
 sys.path.insert(0, import_dir + '/utils/')
@@ -31,8 +31,8 @@ def prepare_dataset(config: AttributeHashmap, mode: str = 'train'):
         dataset = BrainVentricles(base_path=config.dataset_path)
     elif config.dataset_name == 'brain_tumor':
         dataset = BrainTumor(base_path=config.dataset_path)
-    elif config.dataset_name == 'glas_histology':
-        dataset = GlasHistology(base_path=config.dataset_path)
+    elif config.dataset_name == 'esophagus_cancer':
+        dataset = EsophagusCancer(base_path=config.dataset_path)
     elif config.dataset_name == 'example_dataset_without_label':
         dataset = ExampleDatasetWithoutLabel(base_path=config.dataset_path)
     else:
