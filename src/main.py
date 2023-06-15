@@ -14,6 +14,7 @@ from utils.output_saver import OutputSaver
 from utils.parse import parse_settings
 from utils.seed import seed_everything
 
+from clearml import Task, Dataset
 
 def train(config: AttributeHashmap):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -179,6 +180,7 @@ def test(config: AttributeHashmap):
 
 
 if __name__ == '__main__':
+    task = Task.init(project_name='esophagus', task_name='esophagus unsupervised segmentation')
     parser = argparse.ArgumentParser(description='Entry point to run CUTS.')
     parser.add_argument('--mode', default='train', help='`train` or `test`?')
     parser.add_argument('--config',
