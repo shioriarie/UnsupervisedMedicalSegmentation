@@ -180,10 +180,10 @@ def test(config: AttributeHashmap):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Entry point to run CUTS.')
-    parser.add_argument('--mode', help='`train` or `test`?', required=True)
+    parser.add_argument('--mode', default='train', help='`train` or `test`?')
     parser.add_argument('--config',
-                        help='Path to config yaml file.',
-                        required=True)
+                        default='esophagus_cancer_seed2021.yaml'
+                        help='Path to config yaml file.')
     args = vars(parser.parse_args())
 
     args = AttributeHashmap(args)
