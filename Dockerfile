@@ -13,6 +13,8 @@ RUN conda env create -f environment.yml
 RUN echo "source activate cuts" > ~/.bashrc
 ENV PATH /opt/conda/envs/cuts/bin:$PATH
 
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
+
 # Install additional packages with pip
 RUN pip install -U phate && \
     pip install git+https://github.com/KrishnaswamyLab/CATCH && \
