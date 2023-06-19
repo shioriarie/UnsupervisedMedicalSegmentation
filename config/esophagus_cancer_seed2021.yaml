@@ -1,31 +1,21 @@
-<<<<<<< HEAD
 dataset_name: 'esophagus_cancer'
 dataset_path: '$CUTS_ROOT/data/esophagus_cancer/'
 model_save_path: '$CUTS_ROOT/checkpoints/esophagus_cancer_seed2021.pty'
 output_save_path: '$CUTS_ROOT/results/esophagus_cancer_seed2021/'
-=======
-dataset_name: 'example_dataset_without_label'
-dataset_path: '$CUTS_ROOT/data/esophagus_cancer/'
-model_save_path: '$CUTS_ROOT/checkpoints/example_dataset_without_label_seed2021.pty'
-output_save_path: '$CUTS_ROOT/results/example_dataset_without_label_seed2021/'
->>>>>>> 65ee020 (Initial commit)
+datasest_id: 'c1d5059b5a364e7f8e3a1bc591c5cde0'
+
 log_folder: '$CUTS_ROOT/logs'
 model_setting: 'full' # 'full', 'no_recon', 'no_contrastive'
 learning_rate: 1e-3
 weight_decay: 1e-4
 max_epochs: 200
 patience: 10
-<<<<<<< HEAD
+
 batch_size: 8
 num_kernels: 8
 sampled_patches_per_image: 8 # recommend: 4 or above.
 num_workers: 4
-=======
-batch_size: 16
-num_kernels: 16
-sampled_patches_per_image: 16 # recommend: 4 or above.
-num_workers: 8
->>>>>>> 65ee020 (Initial commit)
+
 lambda_contrastive_loss: 0.01  # Between 0 and 1. no_recon == 1. no_contrastive == 0.
 random_seed: 2021
 train_val_ratio: '7:3'

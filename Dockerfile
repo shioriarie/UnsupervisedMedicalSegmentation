@@ -21,7 +21,10 @@ RUN pip install -U phate && \
     pip install opencv-python && \
     pip install sewar && \
     pip install monai && \
-    pip install nibabel
+    pip install nibabel && \
+    pip install clearml && \
+    pip uninstall pyOpenSSL && \
+    pip install pyOpenSSL
 
 # (Optional) Install additional packages for STEGO
 RUN pip install omegaconf && \
@@ -31,9 +34,8 @@ RUN pip install omegaconf && \
     pip install pytorch-lightning==1.9 && \
     pip install azureml && \
     pip install azureml.core
+    
 
 # Copy the rest of your application files to the container
 COPY . .
 
-# Set the command to run your application
-CMD ["python"]
