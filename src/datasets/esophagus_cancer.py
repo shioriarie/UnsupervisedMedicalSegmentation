@@ -24,15 +24,23 @@ class EsophagusCancer(Dataset):
             self.data_image.append(np.array(Image.open(img)))
         self.data_image = np.array(self.data_image)
 
+<<<<<<< HEAD
         self.data_image = self.data_image / np.percentile(self.data_image, 99)
         self.data_image = np.where(self.data_image > 1., 1., self.data_image)
         self.data_image = np.where(self.data_image == 0, 1., self.data_image)
         self.data_image = (self.data_image * 2) - 1
+=======
+        self.data_image = (self.data_image / 255 * 2) - 1
+>>>>>>> 65ee020 (Initial commit)
         # channel last to channel first to comply with Torch.
         self.data_image = np.moveaxis(self.data_image, -1, 1)
 
     def __len__(self) -> int:
+<<<<<<< HEAD
         return self.data_image.shape[0]
+=======
+        return len(self.img_path)
+>>>>>>> 65ee020 (Initial commit)
 
     def __getitem__(self, idx) -> Tuple[np.array, np.array]:
         image = self.data_image[idx]
