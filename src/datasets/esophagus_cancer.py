@@ -21,12 +21,12 @@ class EsophagusCancer(Dataset):
         # It works for this dataset since the dataset is not huge.
         self.data_image = []
         for img in self.imgs:
+            if len(img.shape) == 3:
+                assert img.shape[-1] == 1
+                img = img.squeeze(-1)
             self.data_image.append(np.array(Image.open(img)))
         self.data_image = np.array(self.data_image)
 
-        self.data_image = self.data_image / np.percentile(self.data_image, 99)
-        self.data_image = np.where(self.data_image > 1., 1., self.data_image)
-        self.data_image = np.where(self.data_image == 0, 1., self.data_image)
         self.data_image = (self.data_image * 2) - 1
 
         # channel last to channel first to comply with Torch.
