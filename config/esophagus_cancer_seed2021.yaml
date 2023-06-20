@@ -8,13 +8,13 @@ log_folder: '$CUTS_ROOT/logs'
 model_setting: 'full' # 'full', 'no_recon', 'no_contrastive'
 learning_rate: 1e-3
 weight_decay: 1e-4
-max_epochs: 200
+max_epochs: 100
 patience: 10
 
-batch_size: 8
-num_kernels: 8
-sampled_patches_per_image: 8 # recommend: 4 or above.
-num_workers: 4
+batch_size: 16
+num_kernels: 16
+sampled_patches_per_image: 16 # recommend: 4 or above.
+num_workers: 8
 
 lambda_contrastive_loss: 0.01  # Between 0 and 1. no_recon == 1. no_contrastive == 0.
 random_seed: 2021
