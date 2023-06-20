@@ -22,11 +22,10 @@ class EsophagusCancer(Dataset):
         # It works for this dataset since the dataset is not huge.
         self.data_image = []
         for img in self.imgs:
-            tmp_img = np.array(Image.open(img))
-            if len(tmp_img.shape) == 2:
-                self.data_image.append(cv2.cvtColor(tmp_img, cv2.COLOR_GRAY2RGB))
-            else:
-                self.data_image.append(np.array(tmp_img))
+            tmp_img = Image.open(img)
+            if len(tmp_img.mode) != 'RGB':
+                tmp_img = tmp_img.convert('RGB')
+            self.data_image.append(np.array(tmp_img))
         self.data_image = np.array(self.data_image)
 
         self.data_image = (self.data_image * 2) - 1
