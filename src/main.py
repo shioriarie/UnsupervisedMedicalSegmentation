@@ -184,8 +184,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Entry point to run CUTS.')
     parser.add_argument('--mode', default='train', help='`train` or `test`?')
     parser.add_argument('--config', default='config/esophagus_cancer_seed2021.yaml', help='Path to config yaml file.')
-    parser.add_argument('--dataset_id', default='c1d5059b5a364e7f8e3a1bc591c5cde0')
-    parser.add_argument('--dataset_path', default='../data/esophagus')
     args = vars(parser.parse_args())
 
     args = AttributeHashmap(args)
@@ -193,9 +191,7 @@ if __name__ == '__main__':
     config.config_file_name = args.config
     config = parse_settings(config, log_settings=args.mode == 'train')
     
-    Dataset.get(
-        dataset_id=args.dataset_id, dataset_name='esophagus_dataset'
-        ).get_mutable_local_copy(args.dataset_path)
+    Dataset.get(dataset_id=config.dataset_id).get_mutable_local_copy(config.dataset_path)
     assert args.mode in ['train', 'test']
 
     seed_everything(config.random_seed)
