@@ -23,7 +23,7 @@ RUN pip install -U phate && \
     pip install monai && \
     pip install nibabel && \
     pip install clearml && \
-    pip uninstall pyOpenSSL && \
+    pip uninstall -y pyOpenSSL && \
     pip install pyOpenSSL
 
 # (Optional) Install additional packages for STEGO
@@ -35,7 +35,6 @@ RUN pip install omegaconf && \
     pip install azureml && \
     pip install azureml.core
     
-
 # Copy the rest of your application files to the container
 COPY . .
 

@@ -183,7 +183,9 @@ if __name__ == '__main__':
     task = Task.init(project_name='esophagus', task_name='esophagus unsupervised segmentation')
     parser = argparse.ArgumentParser(description='Entry point to run CUTS.')
     parser.add_argument('--mode', default='train', help='`train` or `test`?')
-    parser.add_argument('--config', default='esophagus_cancer_seed2021.yaml', help='Path to config yaml file.')
+    parser.add_argument('--config', default='config/esophagus_cancer_seed2021.yaml', help='Path to config yaml file.')
+    parser.add_argument('--dataset_id', default='c1d5059b5a364e7f8e3a1bc591c5cde0')
+    parser.add_argument('--dataset_path', default='$CUTS_ROOT/data/esophagus_cancer/')
     args = vars(parser.parse_args())
 
     args = AttributeHashmap(args)
