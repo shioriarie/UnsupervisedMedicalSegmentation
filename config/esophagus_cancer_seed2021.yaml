@@ -2,7 +2,7 @@ dataset_name: 'esophagus_cancer'
 dataset_path: '$CUTS_ROOT/data/esophagus'
 model_save_path: '$CUTS_ROOT/checkpoints/esophagus_cancer_seed2021.pty'
 output_save_path: '$CUTS_ROOT/results/esophagus_cancer_seed2021/'
-datasest_id: 'c1d5059b5a364e7f8e3a1bc591c5cde0'
+dataset_id: 'c1d5059b5a364e7f8e3a1bc591c5cde0'
 
 log_folder: '$CUTS_ROOT/logs'
 model_setting: 'full' # 'full', 'no_recon', 'no_contrastive'
