@@ -193,7 +193,9 @@ if __name__ == '__main__':
     config.config_file_name = args.config
     config = parse_settings(config, log_settings=args.mode == 'train')
     
-    Dataset.get(dataset_id=args.dataset_id).get_mutable_local_copy(args.dataset_path)
+    Dataset.get(
+        dataset_id=args.dataset_id, dataset_project='esophagus', dataset_name='esophagus_dataset'
+        ).get_mutable_local_copy(args.dataset_path)
     assert args.mode in ['train', 'test']
 
     seed_everything(config.random_seed)
