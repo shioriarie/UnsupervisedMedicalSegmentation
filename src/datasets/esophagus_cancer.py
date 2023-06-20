@@ -13,7 +13,7 @@ class EsophagusCancer(Dataset):
                  image_folder: str = ''):
 
         # Load file paths.
-        self.img_path = glob('%s/*' % (base_path))
+        self.img_path = glob('%s/*.png' % (base_path))
 
         self.imgs = sorted([img for img in self.img_path])
 
@@ -22,9 +22,6 @@ class EsophagusCancer(Dataset):
         self.data_image = []
         for img in self.imgs:
             tmp_img = np.array(Image.open(img))
-            if len(tmp_img.shape) == 3:
-                assert tmp_img.shape[-1] == 1
-                tmp_img = tmp_img.squeeze(-1)
             self.data_image.append(tmp_img)
         self.data_image = np.array(self.data_image)
 
