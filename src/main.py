@@ -194,7 +194,7 @@ if __name__ == '__main__':
     config = parse_settings(config, log_settings=args.mode == 'train')
     
     Dataset.get(
-        dataset_id=args.dataset_id, dataset_project='esophagus', dataset_name='esophagus_dataset'
+        dataset_id=args.dataset_id, dataset_name='esophagus_dataset'
         ).get_mutable_local_copy(args.dataset_path)
     assert args.mode in ['train', 'test']
 
