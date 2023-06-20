@@ -10,7 +10,7 @@ class EsophagusCancer(Dataset):
 
     def __init__(self,
                  base_path: str = '../../data',
-                 image_folder: str = 'esophagus_cancer'):
+                 image_folder: str = 'esophagus'):
 
         # Load file paths.
         self.img_path = glob('%s/%s/*' % (base_path, image_folder))
