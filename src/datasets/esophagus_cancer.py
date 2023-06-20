@@ -21,10 +21,11 @@ class EsophagusCancer(Dataset):
         # It works for this dataset since the dataset is not huge.
         self.data_image = []
         for img in self.imgs:
-            if len(img.shape) == 3:
-                assert img.shape[-1] == 1
-                img = img.squeeze(-1)
-            self.data_image.append(np.array(Image.open(img)))
+            tmp_img = np.array(Image.open(img))
+            if len(tmp_img.shape) == 3:
+                assert tmp_img.shape[-1] == 1
+                tmp_img = tmp_img.squeeze(-1)
+            self.data_image.append(tmp_img)
         self.data_image = np.array(self.data_image)
 
         self.data_image = (self.data_image * 2) - 1
