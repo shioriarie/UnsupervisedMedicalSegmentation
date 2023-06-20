@@ -1,6 +1,7 @@
 from glob import glob
 from typing import Tuple
 
+import cv2
 import numpy as np
 from PIL import Image
 from torch.utils.data import Dataset
@@ -22,7 +23,10 @@ class EsophagusCancer(Dataset):
         self.data_image = []
         for img in self.imgs:
             tmp_img = np.array(Image.open(img))
-            self.data_image.append(tmp_img)
+            if len(tmp_img.shape) == 2:
+                self.data_image.append(cv2.cvtColor(tmp_img, cv2.COLOR_GRAY2RGB))
+            else:
+                self.data_image.append(np.array(tmp_img))
         self.data_image = np.array(self.data_image)
 
         self.data_image = (self.data_image * 2) - 1
